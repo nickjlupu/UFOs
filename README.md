@@ -3,6 +3,7 @@
 # Data Visualization Week 11 Challenge
 
 ## Background
+The webpage and dynamic table we have built throughout the module are working as intended, but Dana (our customer) has decided she would like the table to be filtered even further. While it currently filters by the date, she would like to include the ability to filter by more column headers. The ability to pinpoint a search by date and country, for example, would go a long way in providing more in-depth analysis of UFO sightings.
 
 ### Objectives
 The goals of this challenge are to:
@@ -17,7 +18,7 @@ The goals of this challenge are to:
 * css
 
 ## Analysis
-I started by adding list items ('<li>') for the filters that were required (city, state, country, shape).  These were added to the unordered list section in the .html file that already held the user input area for the date filter we developed in the module.  Once this was completed, I built the Javascript code to grab the user input from these items and append a JS object (named "filters").  I then found code on Stack Overflow<sup>1</sup> that helped me remove the keys and values from the object if the user did not enter data into that field (i.e. empty value).  Once we have this clean object, we can loop through it by converting the object to an array (in this case an array of key/value pair arrays) to build the filtered data.  We then return to the buildTable function where we pass the filteredData as the parameter.  I have also added a clear filters button that simply reloads the page since our default is the complete table (i.e. no filters).  
+I started by adding list items for the filters that were required (city, state, country, shape).  These were added to the unordered list section in the .html file that already held the user input area for the date filter we developed in the module.  Once this was completed, I built the Javascript code to grab the user input from these items and append a JS object (named "filters").  I then found code on Stack Overflow<sup>1</sup> that helped me remove the keys and values from the object if the user did not enter data into that field (i.e. empty value).  Once we have this clean object, we can loop through it by converting the object to an array (in this case an array of key/value pair arrays) to build the filtered data.  We then return to the buildTable function where we pass the filteredData as the parameter.  I have also added a clear filters button that simply reloads the page since our default is the complete table (i.e. no filters).  
 
 ### References
-<span font_size=6>1. [https://stackoverflow.com/questions/25421233/javascript-removing-undefined-fields-from-an-object](https://stackoverflow.com/questions/25421233/javascript-removing-undefined-fields-from-an-object)</span>
+<sup>1. [https://stackoverflow.com/questions/25421233/javascript-removing-undefined-fields-from-an-object](https://stackoverflow.com/questions/25421233/javascript-removing-undefined-fields-from-an-object)</sup>

@@ -24,7 +24,7 @@ function buildTable(data) {
 }
 
 // Keep track of all filters
-var filters = {};
+var filters = {}; 
 
 // This function grabs the user input and calls another function to filter the table
 function updateFilters() {
