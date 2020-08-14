@@ -26,43 +26,26 @@ function buildTable(data) {
 // Keep track of all filters
 var filters = {};
 
-// This function will replace your handleClick function
+// This function grabs the user input and calls another function to filter the table
 function updateFilters() {
 
   // Save the element, value, and id of the filter that was changed
-  filters.datetime = d3.select("#datetime").property("value");
-  filters.city = d3.select("#city").property("value");
-  filters.state = d3.select("#state").property("value");
-  filters.country = d3.select("#country").property("value");
-  filters.shape = d3.select("#shape").property("value");
-  // console.log(filters)
+  filters.datetime = d3.select("#datetime").property("value").toLowerCase();
+  filters.city = d3.select("#city").property("value").toLowerCase();
+  filters.state = d3.select("#state").property("value").toLowerCase();
+  filters.country = d3.select("#country").property("value").toLowerCase();
+  filters.shape = d3.select("#shape").property("value").toLowerCase();
 
   // If a filter value was entered then add that filterId and value
   // to the filters list. Otherwise, clear that filter from the filters object
   // https://stackoverflow.com/questions/25421233/javascript-removing-undefined-fields-from-an-object
   Object.keys(filters).forEach(key => filters[key] === "" ? delete filters[key] : {});
   
-  
-  console.log(filters)
-  // let cleanFiltersArray = []
-  // let filtersArray = Object.entries(filters);
-  // filtersArray.forEach(([key, value]) => {
-  //   cleanFiltersArray.push(value);
-  // });
-  
-  // console.log(cleanFiltersArray);
-
-  // cleanFiltersArray = cleanFiltersArray.filter(item => item);
-  
-  
-  // console.log(cleanFiltersArray);
-
-
-
   // Call function to apply all filters and rebuild the table
   filterTable();
 }
 
+// This function filters the table with the user input
 function filterTable() {
 
   // Set the filteredData to the tableData
@@ -70,7 +53,6 @@ function filterTable() {
 
   // Loop through all of the filters and keep any data that
   // matches the filter values
-  // 
   Object.entries(filters).forEach(([key, value]) => {
     filteredData = filteredData.filter(row => row[key] === value);
   });
@@ -84,8 +66,7 @@ function clearFilters() {
   location.reload();
 }
 
-// Attach an event to listen for changes to each filter
-// Hint: You'll need to select the event and what it is listening for within each set of parenthesis
+// These events listen for the button clicks and call the appropriate functions
 d3.selectAll("#filter-btn").on("click", updateFilters);
 d3.selectAll("#clear-btn").on("click", clearFilters);
 
